@@ -7,9 +7,9 @@ import (
 )
 
 func main() {
-	var res1, res2 int
+	var res int
 
-	fd, err := os.Open("input.txt")
+	fd, err := os.Open("./../input.txt")
 	if err != nil {
 		panic(err)
 	}
@@ -21,5 +21,5 @@ func main() {
 		fmt.Println(scanner.Text())
 	}
 
-	fmt.Println(res1, "\n", res2)
+	fmt.Println(res)
 }
