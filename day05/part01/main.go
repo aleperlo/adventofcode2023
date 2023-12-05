@@ -3,6 +3,7 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"math"
 	"os"
 	"strconv"
 	"strings"
@@ -59,11 +60,10 @@ func main() {
 		maps[nMaps].Insert(r)
 	}
 
-	for i, seed := range seeds {
+	res = math.MaxInt
+	for _, seed := range seeds {
 		location = findLocation(seed, maps)
-		if i == 0 {
-			res = location
-		} else if location < res {
+		if location < res {
 			res = location
 		}
 	}

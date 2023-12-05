@@ -3,6 +3,7 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"math"
 	"os"
 	"strconv"
 	"strings"
@@ -83,12 +84,10 @@ func searchRange(seeds []int, i int, maps []BST, wg *sync.WaitGroup, res []int) 
 	var location int
 
 	defer (*wg).Done()
-	res[i/2] = -1
+	res[i/2] = math.MaxInt
 	for seed := seeds[i]; seed < seeds[i]+seeds[i+1]; seed++ {
 		location = findLocation(seed, maps)
-		if res[i/2] == -1 {
-			res[i/2] = location
-		} else if location < res[i/2] {
+		if location < res[i/2] {
 			res[i/2] = location
 		}
 	}
